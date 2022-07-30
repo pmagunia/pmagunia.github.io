@@ -1,0 +1,32 @@
+s3_bucket: pmagunia.com
+cloudfront_distribution_id: E2EU5CB0NEHND1
+
+site: /Users/parag/Downloads/code/pmagunia.com/_site
+
+index_document: index.html
+error_document: 404.html
+
+gzip:
+  - .html
+  - .css
+  - .js
+  - .png
+  - .jpeg
+  - .jpg
+  - .gif
+
+cloudfront_distribution_config:
+  default_cache_behavior:
+    min_ttl: <%= 60 * 60 * 24 * 7 %>
+  aliases:
+    quantity: 1
+    items:
+      - pmagunia.com
+      - www.pmagunia.com
+
+cache_control: public, no-transform, max-age=604800, s-maxage=604800
+
+s3_reduced_redundancy: false
+
+cloudfront_wildcard_invalidation: true
+

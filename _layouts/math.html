@@ -1,0 +1,31 @@
+---
+layout: default
+---
+
+{%- assign _math = site.math -%}
+{%- include header.html -%}
+<!-- Main -->
+<div id="main">
+    {%- if page.content != "" -%}
+        {%- include section.html title=page.title photo=page.cover-photo photo-alt=page.cover-photo-alt auto-header=page.auto-header content=page.content -%}
+    {%- endif -%}
+    <!-- Math List -->
+    {%- for _m in _math -%}
+    {%- capture _title -%}
+        <a href="{{- _m.url | relative -}}">{{- _m.title -}}</a>
+    {%- endcapture -%}
+    {%- capture _subtitle -%}
+        {% if _m.author -%}
+            {{- _m.author }}
+        {% endif %}
+    {%- endcapture -%}
+    {%- capture _excerpt -%}
+        <p>{{- _m.excerpt | strip_html | truncatewords: 100 -}}</p>
+    {%- endcapture -%}
+    {%- capture _link -%}
+        <a href="{{- _m.url | relative_url -}}">read more</a>
+    {%- endcapture -%}
+    {%- assign _content = _excerpt | append: _link -%}
+    {%- include section.html title=_title subtitle=_subtitle content=_content -%}
+    {%- endfor -%}
+</div>

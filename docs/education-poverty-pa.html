@@ -1,0 +1,72 @@
+<!DOCTYPE HTML> <html lang="en"><head> <meta charset="utf-8"/> <link rel="stylesheet" href="/assets/css/main.css"/> <link rel="stylesheet" href="/assets/css/font-awesome.min.css"/> <link rel="stylesheet" href="/assets/css/rouge.css"/> <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css"/> <meta name="viewport" content="width=device-width, initial-scale=1"/> <meta name="robots" content="index, follow"/><link rel="canonical" href="https://pmagunia.com/education-poverty-pa.html"/><title>Poverty and Education in Pennsylvania | All Things Code - pmagunia's Homepage</title> <meta name="description" content="Welcome to the homepage of pmagunia, a developer living in Philadelphia. Some of his interests include photography, music, and meditation."/> <meta name="author" content="pmagunia"/> <script async src="/assets/js/main.js"></script> </head> <body> <div id="headerToggle"> <a href="javascript:void(0);" class="toggle" onclick="menuToggle()"></a> </div> <div id="header"> <div class="top"> <div id="logo"> <a href="https://pmagunia.com/" id="home-link"> <span class="image avatar48"><img src="/assets/images/parag_magunia_favicon.jpg" alt="Avatar of pmagunia"/></span> <h1 id="title">All Things Code</h1> <p>pmagunia's Homepage</p> </a> </div> <nav id="nav"> <ul><li class="contact"> <a href="https://pmagunia.com/contact.html" id="contact-link-id"><span class="icon fa-link">Contact</span></a> </li><li class="home"> <a href="https://pmagunia.com/" id="home-link-id"><span class="icon fa-home">Home</span></a> </li><li class="blog"> <a href="https://pmagunia.com/blog.html" id="blog-link-id"><span class="icon fa-book">Blog</span></a> </li><li class="datasets"> <a href="https://r-data.pmagunia.com" id="datasets"><span class="icon fa-external-link">R Datasets</span></a> </li> <li class="journal"> <a href="https://journal.pmagunia.com" id="journal"><span class="icon fa-external-link">Journal</span></a> </li> <li class="north-penn"> <a href="https://www.northpenn.net" id="north-penn"><span class="icon fa-external-link">North Penn</span></a> </li> </ul> </nav> </div> <div class="bottom"> <ul class="icons"><li><a href="https://drupal.org/u/pmagunia" class="icon fa-drupal"><span class="label">Drupal</span></a></li><li><a href="https://twitter.com/pmagunia" class="icon fa-twitter"><span class="label">Twitter</span></a></li><li><a href="https://www.linkedin.com/in/pmagunia" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li><li><a href="https://github.com/pmagunia" class="icon fa-github"><span class="label">GitHub</span></a></li><li><a href="https://flickr.com/photos/pmagunia" class="icon fa-flickr"><span class="label">Flickr</span></a></li><li><a href="https://soundcloud.com/pmagunia" class="icon fa-soundcloud"><span class="label">SoundCloud</span></a></li><li><a href="https://stackoverflow.com/users/312471/pmagunia" class="icon fa-stack-overflow"><span class="label">StackOverflow</span></a></li></ul> </div> </div> <div id="main"> <article class="shade-two"> <div class="container"> <br/> <header> <h2>Poverty and Education in Pennsylvania</h2></header><p>It would seem that poverty and education are connected, but what does the data say? To understand this relationship, I took <a target="_blank" href="/vis/pa.csv">my survey data</a> from <a target="_blank" href="https://www.openintro.org/data/index.php?data=county_complete">Open Intro</a> and focused on the following three variables for counties in Pennsylvania using only the <a target="_blank" href="https://d3js.org">D3 JavaScript library</a> for data visualization. Please note that data for some counties were missing for 2019.</p> <ol><li>Percent of the county population in poverty - <code>poverty_2019</code></li><li>Percent of the county with a bachelors degree - <code>bachelors_2019</code></li><li>Population of the county - <code>pop_2019</code></li></ol> <p>The data seems to corroborate the negative relationship as most people would likely imagine. Take a closer look using the plots created below. Navigate to a different plot by clicking one of the buttons below. The first plot, a scatterplot, is loaded already with accompanying informational text directly below the plot.</p> <link rel="stylesheet" href="/vis/style.css"/> <script src="https://d3js.org/d3.v6.js"></script> <p><button onclick="getScatterPlot();" id="button-scatterplot">Scatter Plot</button> <button onclick="getBoxPlot();" id="button-boxplot">Box Plot</button> <button onclick="getParallelPlot();" id="button-parallelplot">Parallel Plot</button></p> <div id="d3-plot"></div> <div id="d3-plot-info"></div> <p style="font-size:12px;">D3 Code: <code><a target="_blank" href="/vis/narrative-1.js">narrative-1.js</a></code>,<code><a target="_blank" href="/vis/narrative-2.js">narrative-2.js</a></code>,<code><a target="_blank" href="/vis/narrative-3.js">narrative-3.js</a></code></p> <script>
+function getScatterPlot() {
+    var s = document.createElement('script');
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = "/vis/narrative-1.js"; 
+    var fs = document.getElementById('d3-plot');
+    fs.innerHTML = '';
+    fs.appendChild(s);
+    document.getElementById('button-scatterplot').style.backgroundColor = '#467fa6';
+    document.getElementById('button-boxplot').style.backgroundColor = '#063f76';
+    document.getElementById('button-parallelplot').style.backgroundColor = '#063f76';
+    document.getElementById('d3-plot-info').style.marginTop = '10px';
+    document.getElementById('d3-plot-info').innerHTML = "<p>The scatterplot above plots the percentage of people with a bachelors degree in each county in Pennsylvania as the independent variable and the percentage of people in poverty as the dependendent variable. It is possible to see the negative downsloping relationship between these two variables. Hover your mouse above any bubble for drill-down tooltips for the county. You can find out more about scatter plots on <a target='_blank' href='https://en.wikipedia.org/wiki/Scatter_plot'>Wikipedia</a>.</p>";
+}
+
+function getBoxPlot() {
+    var s = document.createElement('script');
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = "/vis/narrative-2.js"; 
+    var fs = document.getElementById('d3-plot');
+    fs.innerHTML = '<div style="width:500px;"><div id="boxplot-1" style="width:200px;float:left"></div><div id="boxplot-2" style="width:200px;float:right;"></div></div>';
+    fs.appendChild(s);
+    document.getElementById('button-scatterplot').style.backgroundColor = '#063f76';
+    document.getElementById('button-boxplot').style.backgroundColor = '#467fa6';
+    document.getElementById('button-parallelplot').style.backgroundColor = '#063f76';
+    document.getElementById('d3-plot-info').style.marginTop = '-130px';
+    document.getElementById('d3-plot-info').innerHTML = "<p>The above boxplot shows the distribution of data with nonparametric statistics, namely Q1, Q2 (median), and Q3. The minimum and maximum values for <code>poverty_2019</code> and <code>bachelors</code> are displayed as the whiskers. You can find out more about boxplots on <a target='_blank' href='https://en.wikipedia.org/wiki/Box_plot'>Wikipedia</a>.</p>";
+}
+
+function getParallelPlot() {
+    var s = document.createElement('script');
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = "/vis/narrative-3.js"; 
+    var fs = document.getElementById('d3-plot');
+    fs.innerHTML = '';
+    fs.appendChild(s);
+    document.getElementById('button-scatterplot').style.backgroundColor = '#063f76';
+    document.getElementById('button-boxplot').style.backgroundColor = '#063f76';
+    document.getElementById('button-parallelplot').style.backgroundColor = '#467fa6';
+    document.getElementById('d3-plot-info').style.marginTop = '-130px';
+    document.getElementById('d3-plot-info').innerHTML = "<p>The above parallel plot displays three dimensional data in two dimensions. We can see most of the data lines extend from the lower end of the spectrum for education. Like, most of the data lines extend from the top of the spectrum for poverty. This indicates a negative relationship between education and poverty. In other words, as education levels increase, poverty tends to decrease. You can find out more about parallel coordinates on <a target='_blank' href='https://en.wikipedia.org/wiki/Parallel_coordinates'>Wikipedia</a>.</p>";
+}
+
+getScatterPlot();
+document.getElementById('button-scatterplot').style.backgroundColor = '#467fb6';
+document.getElementById('d3-plot-info').innerHTML = "<p>The scatterplot above plots the percentage of people with a bachelors degree in each county in Pennsylvania as the independent variable and the percentage of people in poverty as the dependendent variable. It is possible to see the negative downsloping relationship between these two variables. Hover your mouse above any bubble for drill-down tooltips for the county. You can find out more about scatter plots on <a target='_blank' href='https://en.wikipedia.org/wiki/Scatter_plot'>Wikipedia</a>.</p>";
+
+</script> </div> </article> </div> <div id="footer"> <ul class="copyright"> <li><a href="https://pmagunia.com/2017/01/01/credits.html">Theme credits</a></li> <li>&copy; <a href="https://www.northpenn.net">North Penn Networks</a> Limited</li> <li><a href="/sitemap.xml">sitemap</a></li> <li><a href="/2017/01/01/privacy.html">Privacy</a></li> <li><a href="/2017/01/01/terms.html">Terms</a></li> </ul> </div> <script async src="https://www.googletagmanager.com/gtag/js?id=UA-47026657-17"></script> <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-47026657-17');
+</script> <script>MathJax = { tex: { inlineMath: [['$', '$']] } };</script> <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script> <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script> <script>
+			window.cookieconsent.initialise({
+  				"palette": {
+    				"popup": {
+      					"background": "#343c66",
+      					"text": "#cfcfe8"
+    				},
+    				"button": {
+      					"background": "#f71559"
+    				}
+  				},
+  				"content": {
+    				"href": "https://pmagunia.com/2017/01/01/privacy.html"
+  				}
+			});
+		</script> </body> </html>
