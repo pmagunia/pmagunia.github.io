@@ -1,0 +1,40 @@
+title: "On Things"
+subtitle: "Parag's Web"
+description: "Home to things in my professional and personal life. Views are my own."
+author: "Parag Magunia"
+avatar: "assets/images/pmagunia_favicon.webp"
+
+url: "https://pmagunia.com"
+
+twitter_url: "https://twitter.com/pmagunia"
+soundcloud_url: "https://soundcloud.com/pmagunia"
+flickr_url: "https://flickr.com/photos/pmagunia"
+drupal_url: "https://drupal.org/u/pmagunia"
+linkedin_url: "https://www.linkedin.com/in/pmagunia"
+github_url: "https://github.com/pmagunia"
+stackoverflow_url: "https://stackoverflow.com/users/312471/pmagunia"
+upwork_url: "https://www.upwork.com/freelancers/~015b1032d2938319a8?viewMode=1"
+
+google_analytics: UA-47026657-17
+
+theme: jekyll-theme-prologue
+
+collections: [sections]
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-redirect-from
+  - jekyll-tidy
+  - sass
+
+exclude: [jekyll-theme-prologue.gemspec,redirects.json,Gemfile,Gemfile.lock]
+
+jekyll_tidy:
+  compress_html: true
+
+highlighter: rouge
+
+destination: docs
+
+sass:
+  style: compressed
