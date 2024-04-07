@@ -1,5 +1,5 @@
 function submitNorthPennContactForm() {
-	var URL = "https://sp27bn72uk.execute-api.us-east-1.amazonaws.com/v1/contact";
+	var URL = "https://bvmxe8lc56.execute-api.us-east-1.amazonaws.com/contact";
 	var xmlhttp = new XMLHttpRequest();
 	var dataCapsule = {"name":document.getElementById("edit-name").value,"mail":document.getElementById("edit-mail").value,"referrer":document.getElementById("edit-referrer").value,"message":document.getElementById("edit-message").value,"gRecapResp":document.getElementById("g-recaptcha-response").value};
 	xmlhttp.open("POST", URL, true);
@@ -16,4 +16,4 @@ function submitNorthPennContactForm() {
 		}
 	}
 	xmlhttp.send(JSON.stringify(dataCapsule));
-}	
+}
