@@ -19,6 +19,15 @@ layout: default
                 {%- if _post.url contains '/spirituality/' -%}
                         {% continue %}
                 {%- endif -%}
+                {%- if _post.url contains '/arithmetic/' -%}
+                        {% continue %}
+                {%- endif -%}
+                {%- if _post.url contains '/statistics/' -%}
+                        {% continue %}
+                {%- endif -%}
+                {%- if _post.url contains '/math/' -%}
+                        {% continue %}
+                {%- endif -%}
                 {%- capture _title -%}
                         <a href="{{- _post.url | absolute_url -}}">{{- _post.title -}}</a>
                 {%- endcapture -%}
