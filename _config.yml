@@ -42,6 +42,6 @@ sass:
 defaults:
   -
     scope:
-      path: ['iframe','assets']
+      path: 'iframe'
     values:
       sitemap: false
