@@ -38,3 +38,10 @@ destination: docs
 
 sass:
   style: compressed
+
+defaults:
+  -
+    scope:
+      path: ['iframe','assets']
+    values:
+      sitemap: false
