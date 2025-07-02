@@ -21,7 +21,7 @@ layout: default
 			{{- _post.date | date: '%B %-d, %Y' -}}
 		{%- endcapture -%}
 		{%- capture _excerpt -%}
-			<p>{{- _post.excerpt | strip_html | truncatewords: 100 -}}</p>
+			<p>{{- _post.excerpt | strip_html | truncatewords: 50 -}}</p>
 		{%- endcapture -%}
 		{%- capture _link -%}
 			<a href="{{- _post.url | absolute_url -}}">read more</a>

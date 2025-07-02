@@ -1,5 +1,5 @@
 ---
-title: I Passed the AWS Developer Exam
+title: Passed the AWS Developer Exam
 author: pmagunia
 layout: page
 permalink: /technology/aws-developer-exam-2024
