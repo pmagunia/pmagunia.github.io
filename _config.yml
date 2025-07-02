@@ -15,8 +15,6 @@ github_url: "https://github.com/pmagunia"
 stackoverflow_url: "https://stackoverflow.com/users/312471/pmagunia"
 upwork_url: "https://www.upwork.com/freelancers/~015b1032d2938319a8?viewMode=1"
 
-google_analytics: UA-47026657-17
-
 theme: jekyll-theme-prologue
 
 collections: [sections]
